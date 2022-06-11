@@ -15,8 +15,7 @@ namespace IMDBDataStore.Schema.Models
         public string Plot { get; set; }
 
         public DateTime DateTime { get; set; }
-        public byte[] Poster{ get; set; }
 
-        public int ProducerId { get; set; }
+        public Producer Producer { get; set; }
     }
 }

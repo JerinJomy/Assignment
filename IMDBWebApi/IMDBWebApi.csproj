@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Imdb.Core\Imdb.Core.csproj" />
     <ProjectReference Include="..\IMDBDataStore\IMDBDataStore.csproj" />
   </ItemGroup>
 

@@ -4,14 +4,16 @@ using IMDBDataStore.Schema.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IMDBDataStore.Migrations
 {
     [DbContext(typeof(IMDBContext))]
-    partial class IMDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220611073919_Minor_modification_Actortable")]
+    partial class Minor_modification_Actortable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,12 +80,13 @@ namespace IMDBDataStore.Migrations
                     b.Property<string>("Plot")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProducerId")
+                    b.Property<byte[]>("Poster")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<int>("ProducerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProducerId");
 
                     b.ToTable("Movies");
                 });
@@ -146,15 +149,6 @@ namespace IMDBDataStore.Migrations
                         .HasForeignKey("GenderId");
 
                     b.Navigation("Gender");
-                });
-
-            modelBuilder.Entity("IMDBDataStore.Schema.Models.Movie", b =>
-                {
-                    b.HasOne("IMDBDataStore.Schema.Models.Producer", "Producer")
-                        .WithMany()
-                        .HasForeignKey("ProducerId");
-
-                    b.Navigation("Producer");
                 });
 
             modelBuilder.Entity("IMDBDataStore.Schema.Models.Producer", b =>
