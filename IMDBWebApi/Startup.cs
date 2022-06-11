@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IMDBWebApi.Middlewares;
 using IMDBWebApi.RegistrationExtension;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -43,6 +44,8 @@ namespace IMDBWebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseErrorHandlingMiddleware();
 
             app.UseAuthorization();
 

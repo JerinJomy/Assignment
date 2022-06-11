@@ -96,6 +96,29 @@ namespace IMDBDataStore.DataService
             }
         }
 
+        public List<ActorInfo> GetActors()
+        {
+            try
+            {
+                var actors = dbContext.Actors.Join(dbContext.Gender,
+                    o => o.Gender.Id, i => i.Id,
+                    (o, i) => new ActorInfo()
+                    {
+                        ActorName = o.Name,
+                        Bio = o.Bio,
+                        Gender = (GenderTypes)i.Id,
+                        DateOfBirth = o.DateOfBirth
+                    }).ToList<ActorInfo>();
+
+                return actors;
+            }
+            catch (Exception ex)
+            {
+
+                throw new DataOperationException(ex.Message);
+            }
+        }
+
         public List<MovieInfo> GetMovies()
         {
             try
@@ -121,6 +144,30 @@ namespace IMDBDataStore.DataService
                 throw new DataOperationException(ex.Message);
             }
 
+        }
+
+        public List<ProducerInfo> GetProducer()
+        {
+            try
+            {
+                var producers = dbContext.Producers.Join(dbContext.Gender,
+                    o => o.Gender.Id, i => i.Id,
+                    (o, i) => new ProducerInfo()
+                    {
+                        ProducerName = o.Name,
+                        Bio = o.Bio,
+                        Gender = (GenderTypes)i.Id,
+                        Company = o.CompanyName,
+                        DateOfBirth = o.DateOfBirth
+                    }).ToList<ProducerInfo>() ;
+
+                return producers;
+            }
+            catch (Exception ex)
+            {
+
+                throw new DataOperationException(ex.Message);
+            }
         }
 
         private void AddActor(List<MovieInfo> movieInfos)

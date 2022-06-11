@@ -59,10 +59,27 @@ namespace IMDBWebApi.Controllers
 
         [HttpGet]
         [Route("movie")]
-        public IActionResult GetMovies(MovieInfo movieInfo)
+        public IActionResult GetMovies()
         {
             var movieList = dataRepo.GetMovies();
             return Ok(movieList);
         }
+
+        [HttpGet]
+        [Route("producers")]
+        public IActionResult GetProducers()
+        {
+            var producers= dataRepo.GetProducer();
+            return Ok(producers);
+        }
+        
+        [HttpGet]
+        [Route("actors")]
+        public IActionResult GetActors()
+        {
+            var actors= dataRepo.GetActors();
+            return Ok(actors);
+        }
+            
     }
 }

@@ -10,6 +10,8 @@ namespace IMDBDataStore.Interfaces
         public Task<int> AddProducer(ProducerInfo producerInfo);
         public Task<int> AddMovie(MovieInfo movieInfo);
         public List<MovieInfo> GetMovies();
+        public List<ProducerInfo> GetProducer();
+        public List<ActorInfo> GetActors();
 
     }
 }
