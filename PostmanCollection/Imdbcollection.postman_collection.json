@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "f96600ea-1893-4f35-a02d-4ad5163744f8",
+		"name": "Imdbcollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16379875"
+	},
+	"item": [
+		{
+			"name": "AddActor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"actorName\": \"jerin\",\r\n    \"bio\": \"new producer\",\r\n    \"dateOfBirth\": \"1997-01-01T00:00:00\",\r\n    \"gender\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{loc_url}}/Actor",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"Actor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add producer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"actorName\": \"jerin\",\r\n    \"bio\": \"new producer\",\r\n    \"dateOfBirth\": \"1997-01-01T00:00:00\",\r\n    \"company\": \"new company\",\r\n    \"gender\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{loc_url}}/producer",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"producer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateMovie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movieName\": \"Movie1\",\r\n    \"releaseDate\": \"2022-06-11T14:11:14.5291719+05:30\",\r\n    \"actors\": [\r\n        {\r\n            \"actorId\": 1,\r\n            \"actorName\": \"jerin\"\r\n        },\r\n        {\r\n            \"actorId\": 2,\r\n            \"actorName\": \"jerin1\"\r\n        }\r\n    ],\r\n    \"plot\": \"new Movie\",\r\n    \"producer\": {\r\n        \"producerId\": 1,\r\n        \"producerName\": \"jerin\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{loc_url}}/movie",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMovies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{loc_url}}/movie",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Producers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{loc_url}}/producers",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"producers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{loc_url}}/producers",
+					"host": [
+						"{{loc_url}}"
+					],
+					"path": [
+						"producers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "loc_url",
+			"value": "https://localhost:5001/api/imdbdata"
+		}
+	]
+}
